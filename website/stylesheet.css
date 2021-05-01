@@ -20,6 +20,19 @@ h2 {
 	font-size: 1.2em;
 }
 
+h3 {
+	text-decoration: underline;
+	font-size: 150%;
+	/* inherits the font-size from the body (relative to it */
+}
+
+.smallheading {
+	text-decoration: underline;
+	text-align: center;
+	font-size: 1.2em;
+	color: yellow;
+}
+
 		
 #para1homepage  {
 	color: blue;
@@ -34,7 +47,25 @@ p.paragraph  {
 	background-color: #e5e4d7;
 	padding: 20px 20px 20px 70px;
 	border: black solid 2px;
-	/*background-image: url(clouds.jpeg);*/
+	background-image: url(clouds.jpeg);
+	border-radius: 10px;
+	/*border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;*/
+	border-bottom-style: dotted;
+
+	}
+
+	p.paragraph1 {
+		color: green;
+		font-style: italic;
+		font-size: 15px;
+		line-height: 1.5em;
+		background-color: #e5e4d7;
+		padding: 20px 20px 20px 70px;
+		border: black solid 2px;
+		background-image: url(clouds.jpeg);
 	border-radius: 10px;
 	/*border-bottom-right-radius: 0px;
 	border-bottom-left-radius: 0px;
@@ -61,6 +92,25 @@ p.paragraph  {
 	padding-left: 40px;
 }
 
+/* Learning the float property */
+div.div1 {
+	background-color: red;
+	color: white;
+	width: 50%
+		/*300px*/
+	;
+	float: left;
+}
+
+div.div2 {
+	background-color: black;
+	color: white;
+	width: 50%
+		/*300px*/
+	;
+	float: right;
+}
+
 img.image {
 	display: block;
 	text-align: center;
@@ -81,4 +131,25 @@ img.image {
 #divtswiftdescription {
 	color: black;
 	
+}
+.divcontent {
+	color: black;
+
+}
+
+.highlight {
+	background-color: #ffff00;
+}
+
+/* better to be in order */
+a:link {
+	color: blue;
+}
+
+a:visited {
+	color: #8c8c9D;
+}
+
+a:hover {
+	color: #F15A51;
 }
