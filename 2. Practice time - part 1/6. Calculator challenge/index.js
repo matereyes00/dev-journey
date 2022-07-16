@@ -10,5 +10,24 @@ document.getElementById("num2-el").textContent = num2
 
 // E.g. if the user clicks on the "Plus" button, you should render
 // "Sum: 10" (since 8 + 2 = 10) inside the paragraph with id="sum-el"
+let result = document.getElementById("sum-el")
 
+function add() {
+    let sum = num1 + num2 
+    result.textContent = "Sum: " + sum
+}
 
+function subtract() {
+    let diff = num1 - num2 
+    result.textContent = "Difference: " + diff
+}
+
+function multiply() {
+    let product = num1 * num2 
+    result.textContent = "Difference: " + product
+}
+
+function divide() {
+    let quotient = num1 / num2 
+    result.textContent = "Quotient: " + quotient
+}
