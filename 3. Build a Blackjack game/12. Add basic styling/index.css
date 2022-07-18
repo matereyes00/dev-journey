@@ -1,7 +1,14 @@
 /* Complete the CSS styling according to the provided design */
 
 body {
-    
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    background-image: url("images/table.png");  
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
 }
 
 h1 {
@@ -9,5 +16,5 @@ h1 {
 }
 
 #message-el {
-    
+    font-style: italic;
 }
