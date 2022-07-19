@@ -8,13 +8,16 @@ let messageEl = document.getElementById("message-el")
 let sumEl = document.getElementById("sum-el")
 let cardsEl = document.getElementById("cards-el")
 
+// arrays
+let cards = [firstCard, secondCard]
+
 function startGame() {
     renderGame()
 }
 
 function renderGame() {
     // render out firstCard and secondCard
-    cardsEl.textContent = "Cards: " + firstCard + " " + secondCard
+    cardsEl.textContent = "Cards: " + cards[0] + " " + cards[1]
     // render out ALL the cards we have
     sumEl.textContent = "Sum: " + sum
     if (sum <= 20) {
