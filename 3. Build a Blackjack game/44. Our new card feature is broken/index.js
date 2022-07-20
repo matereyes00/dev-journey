@@ -46,6 +46,8 @@ function renderGame() {
     messageEl.textContent = message
 }
 
+// still in the game? AND cant have blackjack either
+
 
 function newCard() {
     let card = getRandomCard()

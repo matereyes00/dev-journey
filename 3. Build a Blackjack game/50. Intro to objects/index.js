@@ -13,5 +13,6 @@ let course = {
 
 
 console.log( course.tags )
+console.log( course["level"] )
 
 

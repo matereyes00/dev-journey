@@ -1,7 +1,15 @@
 let player = {
     name: "Per",
     chips: 200,
+    sayHello: function() {
+        console.log("Heisann!");
+    }
 }
+
+player.sayHello()
+
+// methods are the ones after the period
+// object . method ()
 
 let cards = []
 let sum = 0

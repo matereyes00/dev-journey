@@ -8,4 +8,6 @@ function showSolution() {
     console.log("Showing the solution....")
 }
 
-
+if ( hasHintsLeft === false && hasSolvedChallenge === false ) {
+    showSolution()
+}
