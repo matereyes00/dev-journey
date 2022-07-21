@@ -1,6 +1,11 @@
 // Create two variables:
 // myLeads -> should be assigned to an empty array
 // inputEl -> should be assigned to the text input field
+let myLeads = []
+const inputEl = document.getElementById("input-el");
+
+console.log(myLeads)
+console.log(inputEl)
 
 let inputBtn = document.getElementById("input-btn")
 
@@ -9,3 +14,4 @@ inputBtn.addEventListener("click", function() {
 })
 
 
+// CONST VS LET (PERMANENT VS TEMPORARY)
