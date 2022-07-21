@@ -10,7 +10,13 @@ inputBtn.addEventListener("click", function() {
 
 // Let's try a different method!
 for (let i = 0; i < myLeads.length; i++) {
-    ulEl.innerHTML += "<li>" + myLeads[i] + "</li>"
+    // ulEl.innerHTML += "<li>" + myLeads[i] + "</li>"
+    // create element
+    const li = document.createElement("li")
+    // set text content
+    li.textContent = myLeads[i]
+    // append to ul
+    ulEl.append(li)
 }
 
 
