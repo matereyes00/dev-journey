@@ -11,17 +11,16 @@ if (leadsFromLocalStorage) {
     render(myLeads)
 }
 
-// https://stackoverflow.com/questions/6132018/how-can-i-get-the-current-tab-url-for-chrome-extension
+const tabs = [
+    {url: "https://www.linkedin.com/in/per-harald-borgen/"}
+]
+
 tabBtn.addEventListener("click", function(){
-    // query chrome for the tab. When chrome triggers function, it will give us the tab
-    chrome.tabs.query( {active:true, currentWindow:true}, function(tabs) {
-        myLeads.push(tabs[0].url)
-        localStorage.setItem("myLeads", JSON.stringify(myLeads) )
-        render(myLeads)
-    })
-    
-    
-    
+    // Save the url instead of logging it out
+    myLeads.push(tabs[0].url) // save to myLeads array
+    localStorage.setItem("myLeads", JSON.stringify(myLeads) ) // save to local storage
+    console.log(myLeads)
+    render(myLeads)
 })
 
 function render(leads) {

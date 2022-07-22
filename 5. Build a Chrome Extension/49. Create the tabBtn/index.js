@@ -5,13 +5,24 @@ const ulEl = document.getElementById("ul-el")
 const deleteBtn = document.getElementById("delete-btn")
 const leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") )
 // 1. Grab the SAVE TAB button and store it in a tabBtn variable
+const tabBtn = document.getElementById("tab-btn");
+
 
 if (leadsFromLocalStorage) {
     myLeads = leadsFromLocalStorage
     render(myLeads)
 }
 
+const tabs = [
+    {url: "https://www.linkedin.com/in/martina-therese-reyes-8b490a205/"} // entire object
+]
+
 // 2. Listen for clicks on tabBtn. Log Per's LinkedIn URL to the console
+// https://www.freecodecamp.org/news/javascript-object-keys-tutorial-how-to-use-a-js-key-value-pair/
+tabBtn.addEventListener("click", function() {
+    //console.log("tab btn clicked")
+    console.log(tabs[0].url)
+})
 
 
 function render(leads) {
