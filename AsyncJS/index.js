@@ -6,7 +6,7 @@ console.log(" eat ");
 //setTimer: runs a function after a certian amount of time
 // args, time (ms)
 setTimeout(()=>{
-    console.log(" ice cream ");
+    console.log(" ice cream "); // prints after 4 seconds
 }, 4000)
 
 console.log(" with a ");
