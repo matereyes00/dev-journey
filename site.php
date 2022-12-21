@@ -8,7 +8,21 @@
 </head>
 <body>
     <?php 
-        echo("Hello World");
+        echo("<h1>Hello World</h1>");
+        echo "<hr>";
+        echo "<p>This is my site</p>";
+
+        echo "<h1> Variables </h1>";
+        echo "<hr>";
+
+        $characterName = "John";
+        $characterAge = 32;
+        
+        echo "There once was a man named $characterName <br>";
+        echo "He was $characterAge years old <br>";
+        echo "He really liked the name $characterName <br>";
+        echo "But he didn't like being $characterAge <br>";
+    
     ?>
 </body>
 </html>
