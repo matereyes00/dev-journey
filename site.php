@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    <?php error_reporting(0); ?>
     <?php 
         echo("<h1>Hello World</h1>");
         echo "<hr>";
@@ -69,6 +70,22 @@
         echo ceil(2.10);
         echo "<br>";
         echo floor(2.10);
+        
+        echo "<h1> Getting user input </h1>";
+        echo "<hr>";
+        // setting up a form - allows user to input information, passes it to the php
+        // middleman between html and php
     ?>
+
+    <form action="site.php" method="get">
+        Name: <input type="text" name="username">
+        <br>
+        Age: <input type="number" name="age">
+        <input type="submit">
+    </form>
+    <br>
+    Your name is <?php echo $_GET["username"] ?>
+    <br>
+    Your age is <?php echo $_GET["age"] ?>
 </body>
 </html>
