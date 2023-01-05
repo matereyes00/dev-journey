@@ -87,5 +87,14 @@
     Your name is <?php echo $_GET["username"] ?>
     <br>
     Your age is <?php echo $_GET["age"] ?>
+
+    <h1> Arrays </h1>
+    <hr>
+    <p> similar to variables,  but stores diff values inside of it </p>
+    <?php 
+        $friends = array("Ross", "Rachel", "Monica", "Chandler", "Phoebe", "Joey");
+        echo $friends[1];
+        echo count($friends);
+    ?>
 </body>
 </html>
