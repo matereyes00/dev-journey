@@ -14,7 +14,8 @@ This is my Stack (Martina)
 
 - Django (intermediate)
 - React (intermediate)
-- NestJS (beginner)
+- NestJS (intermediate)
+- Streamlit (intermediate)
 
 > > > > > > > > > Languages:
 
