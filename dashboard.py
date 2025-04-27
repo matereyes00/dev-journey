@@ -33,6 +33,7 @@ episodes_df = pd.read_csv('data/the_summer_i_turned_pretty_episodes.csv')
 
 # Streamlit UI
 st.title("🌸The Summer I Turned Pretty Dashboard🐚")
+st.subheader("By: Matê 💻")
 col1, col2 = st.columns([1, 3])  # col1 will be 3 times wider than col2
 with col1:
     st.header("📼 Have you seen the latest trailer?")
@@ -68,3 +69,5 @@ tv_config.fetch_jenny_han_cinematic_universe(jenny_han_adaptations_df)
 st.write("### Books")
 jenny_han_books_df = pd.read_csv('data/jenny_han_books.csv')
 books_config.show_jenny_han_books(jenny_han_books_df)
+
+st.write("#### 🌊 Feel free to reach out to me at martina.reyes.thesis@gmail.com")
