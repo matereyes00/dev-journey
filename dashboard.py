@@ -1,13 +1,9 @@
 import streamlit as st
-from dotenv import load_dotenv
 import pandas as pd
-import os
-import plotly.express as px
-from googleapiclient.discovery import build
 import spotify_analysis
 
 import utils.books_utils as books_config
-import utils.spotify_utils as spotify_config
+# import utils.spotify_utils as spotify_config
 import utils.youtube_utils as youtube_config
 import utils.tv_utils as tv_config
 st.set_page_config(layout='wide')
