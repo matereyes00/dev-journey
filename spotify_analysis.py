@@ -11,6 +11,9 @@ def trailer_songs_fetch(csv_file_path):
 def team_conrad_or_jerimiah(df):
     df_sorted = df.sort_values(by='popularity', ascending=False)
     st.header("Team who?")
+    st.write("The popularity of a track is a value between 0 and 100, with 100 being the most popular")
+
+    st.subheader("Spotify")
     num_songs = len(df_sorted)
     for i in range(0, num_songs,2): 
         cols = st.columns(2)  
@@ -29,7 +32,7 @@ def team_conrad_or_jerimiah(df):
 
     return df_sorted  # Return the sorted DataFrame (optional)
 
-def discover_taylor(df):
+def discover_artists(df):
     df_sorted = df.sort_values(by='popularity', ascending=False)
     st.subheader("Discover Taylor here")
     num_songs = len(df_sorted)
