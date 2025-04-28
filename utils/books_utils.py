@@ -21,11 +21,12 @@ def show_jenny_han_books(df):
                 book = books_to_display.iloc[index]
                 title = book['Title']
                 cover_url = book['Cover URL']
-
                 with cols[i]:
                     if isinstance(cover_url, str):  # Check if cover_url is a string
                         st.image(cover_url, width=100, use_container_width=True)
                     else:
                         st.write("Cover not available.")
-                    st.subheader(title)
+                    st.markdown(f"""
+                                <p style='font-size:18px;'>{title}</p>""", 
+                            unsafe_allow_html=True)
                 

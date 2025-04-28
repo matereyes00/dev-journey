@@ -1,0 +1,30 @@
+Okay, given your data constraints (Spotify and YouTube APIs), here's a refined set of metrics for your "The Summer I Turned Pretty" dashboard:
+
+YouTube Metrics:
+    ☑️Views: (From your existing code) Track the number of views for official trailers, music videos, and any other TSITP-related content on YouTube.
+    ☑️Likes: (From your existing code) Track the number of likes for the same YouTube content.
+    Average View Duration: (YouTube API) See how long people are watching TSITP content. Longer durations suggest higher engagement.
+    Audience Retention Rate: (YouTube API) See when viewers drop off in a video. This helps identify engaging and less engaging parts.
+    Comment Count: (YouTube API) The number of comments on TSITP YouTube videos. More comments usually mean more viewer interaction.
+    ☑️Comment Sentiment Analysis: (YouTube API) Analyze the sentiment (positive, negative, neutral) of comments on TSITP YouTube videos. This provides insights into how viewers feel about the show, specific videos, or characters.
+
+Spotify Metrics:
+    Soundtrack Performance:
+    Streams: Track the number of streams for songs featured in the show. This is a direct measure of the show's impact on music popularity.
+    Followers: Track the number of followers on official TSITP playlists or artist pages related to the soundtrack.
+    Playlist Adds: See how many user playlists include songs from the soundtrack.
+
+Twitter Metrics:
+    Tweet Volume: Track the number of tweets related to TSITP over time. This shows the level of online discussion and buzz.
+    Trending Topics: Monitor if TSITP or related keywords are trending on Twitter. This indicates widespread interest and popularity.
+    Sentiment Analysis: Analyze the sentiment (positive, negative, neutral) of tweets about TSITP. This provides insights into overall public opinion and reactions to the show, characters, and storylines.
+    Engagement Metrics:
+        Retweets: Track the number of retweets of TSITP-related tweets. Retweets indicate that users are sharing and amplifying the message.
+        Likes: Track the number of likes on TSITP-related tweets. Likes indicate that users approve of or support the tweet.
+        Influencer Mentions: Track mentions by key influencers, celebrities, or prominent accounts. This can highlight the show's reach and impact on influential figures.
+
+Combining Data:
+    YouTube Views vs. Spotify Streams: You could create a comparison metric to see if there's a correlation between a trailer's popularity on YouTube and a song's performance on Spotify. For example, do songs featured in highly viewed trailers get more streams?
+    Twitter Buzz and YouTube Views: Analyze if spikes in Twitter activity correlate with increased views on YouTube for trailers or specific scenes.
+    Twitter Sentiment and Soundtrack Performance: Explore if positive/negative sentiment on Twitter influences soundtrack streams on Spotify.
+

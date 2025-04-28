@@ -8,38 +8,40 @@ import utils.youtube_utils as youtube_config
 import utils.tv_utils as tv_config
 st.set_page_config(layout='wide')
 
-# st.markdown("""
-#     <style>
-#     body {
-#     }
-#     h1, h2, h3, p, div, span, a, li, td, th { /* Add more elements as needed */
-#         color: #333;
-#         background-color: #FFF1E6;
-#     }
-#     .stMetric > div > div > div > p { /* Target metric value */
-#         color: #333 !important;
-#     }
-#     .streamlit-expander > div > p { /* Target expander text */
-#         color: #333 !important;
-#     }
-#     </style>
-# """, unsafe_allow_html=True)
+st.markdown("""
+    <style>
+    body {
+        background-color: #FAE3D9; 
+    }
+    </style>
+""", unsafe_allow_html=True)
 
 video_details = youtube_config.youtube_fetch()
 tweets_df = pd.read_csv('data/twitter_sentiment_analysis.csv')
 yt_sentiment = pd.read_csv('data/youtube_sentiment_analysis.csv')
 episodes_df = pd.read_csv('data/the_summer_i_turned_pretty_episodes.csv')
+imdb_reviews_df = pd.read_csv('data/cleaned_reviews.csv')
 
-
-# Streamlit UI
-st.title("🌸The Summer I Turned Pretty Dashboard🐚")
+st.markdown(
+    """
+    <h1 style='color: #D4A373;'>🌸The Summer I Turned Pretty Dashboard🐚</h1>
+    """,
+    unsafe_allow_html=True
+)
 st.subheader("By: Matê 💻")
 col1, col2 = st.columns([1, 3])  # col1 will be 3 times wider than col2
 with col1:
-    st.header("📼 Have you seen the latest trailer?")
+    st.markdown(
+    """
+    <h1 style='color:#F2AE72;'>📼 Have you seen the latest trailer?</h1>
+    """, unsafe_allow_html=True)
+
     youtube_config.show_latest_trailer(video_details)
 with col2:
-    st.header("How are we feeling?")
+    st.markdown(
+    """
+    <h1 style='color:#F2AE72;'>📼 How are we feeling?</h1>
+    """, unsafe_allow_html=True)
     youtube_config.sentiment_analysis(yt_sentiment)
 
 df = spotify_analysis.trailer_songs_fetch('data/spotify_tracks.csv')
@@ -48,8 +50,16 @@ with st.container():
     col1, col2 = st.columns(2)
     with col1:
         spotify_analysis.team_conrad_or_jerimiah(df)
-        st.subheader("Youtube")
+        st.markdown(
+            """ 
+                <h2 style='color:#CB8F40;'>Youtube</h2>
+            """, unsafe_allow_html=True)
         youtube_config.team_conrad_or_jeremiah(yt_sentiment)
+        st.markdown(
+            """ 
+                <h2 style='color:#CB8F40;'>IMDb</h2>
+            """, unsafe_allow_html=True)
+        tv_config.team_conrad_or_jeremiah(imdb_reviews_df)
     with col2:
         spotify_analysis.discover_artists(df)
 

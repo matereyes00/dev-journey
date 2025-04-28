@@ -11,9 +11,13 @@ def trailer_songs_fetch(csv_file_path):
 def team_conrad_or_jerimiah(df):
     df_sorted = df.sort_values(by='popularity', ascending=False)
     st.header("Team who?")
-    st.write("The popularity of a track is a value between 0 and 100, with 100 being the most popular")
 
-    st.subheader("Spotify")
+    st.markdown(
+        """ 
+            <h2 style='background-color:#D4A373 #;color:#CB8F40;'>Spotify</h2>
+            <p>The popularity of a track is a value between 0 and 100, with 100 being the most popular</p>
+            
+        """, unsafe_allow_html=True)
     num_songs = len(df_sorted)
     for i in range(0, num_songs,2): 
         cols = st.columns(2)  

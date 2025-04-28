@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
+import plotly.express as px
 import os
 import dotenv
 import requests
@@ -88,3 +89,46 @@ def episode_rating(df):
 
         st.pyplot(fig)
         st.markdown(f"<p style='text-align: center; color: #888;'>🎞️ {len(filtered_df)} episode(s) shown from selected season(s).</p>", unsafe_allow_html=True)
+
+def get_team(tweet):
+    if not isinstance(tweet, str):
+        return
+    tweet = tweet.lower()
+
+    conrad_keywords = ['bonrad', 'conrad', 'belly and conrad', 'conrad and belly', 'conrad fisher', 'team conrad', 'i love conrad', 'conrad is the one', 'go conrad' 'connie', 'red']
+    jeremiah_keywords = ['team jeremiah', 'jelly', 'jellyfish', 'jeremiah', 'belly and jeremiah', 'jeremiah and belly', 'jeremiah fisher', 'team jeremiah', 'i love jeremiah', 'jeremiah is better', 'go jeremiah', 'daylight', 'team jer', 'team jere']
+
+    # Check for Conrad keywords
+    if any(keyword in tweet for keyword in conrad_keywords):
+        return 'Team Conrad'
+
+    # Check for Jeremiah keywords
+    if any(keyword in tweet for keyword in jeremiah_keywords):
+        return 'Team Jeremiah'
+
+
+        
+def team_conrad_or_jeremiah(df):
+    df['team'] = df['cleaned_review'].apply(get_team)
+    df['team_title'] = df['cleaned_title'].apply(get_team)
+    team_counts = df['team'].value_counts().reset_index()
+    team_counts_from_title = df['team_title'].value_counts().reset_index()
+    team_counts.columns = ['team', 'count']
+    team_counts_from_title.columns = ['team', 'count']
+
+    color_map = {
+        'Team Conrad': '#ADD3D3',   # Light Teal
+        'Team Jeremiah': '#CB8F40', # Warm Brown/Orange
+        # 'Other': '#D3D3D3'          # Light Gray for "Other"
+    }
+
+    fig = px.bar(
+        team_counts,
+        x='team',
+        y='count',
+        color='team',
+        color_discrete_map=color_map,
+        title="Team Conrad vs Team Jeremiah Mentions"
+    )
+
+    st.plotly_chart(fig)
