@@ -33,14 +33,14 @@ col1, col2 = st.columns([1, 3])  # col1 will be 3 times wider than col2
 with col1:
     st.markdown(
     """
-    <h1 style='color:#F2AE72;'>📼 Have you seen the latest trailer?</h1>
+    <h1 style='color:#F08080;'>📼 Have you seen the latest trailer?</h1>
     """, unsafe_allow_html=True)
 
     youtube_config.show_latest_trailer(video_details)
 with col2:
     st.markdown(
     """
-    <h1 style='color:#F2AE72;'>📼 How are we feeling?</h1>
+    <h1 style='color:#F08080;'>📼 How are we feeling?</h1>
     """, unsafe_allow_html=True)
     youtube_config.sentiment_analysis(yt_sentiment)
 
