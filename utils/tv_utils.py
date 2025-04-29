@@ -7,6 +7,9 @@ import os
 import dotenv
 import requests
 import time  # To be respectful to the API
+from io import BytesIO
+from wordcloud import WordCloud
+
 
 def fetch_jenny_han_cinematic_universe(df):
     num_columns = 5  # You can adjust the number of posters per row
@@ -105,8 +108,6 @@ def get_team(tweet):
     # Check for Jeremiah keywords
     if any(keyword in tweet for keyword in jeremiah_keywords):
         return 'Team Jeremiah'
-
-
         
 def team_conrad_or_jeremiah(df):
     df['team'] = df['cleaned_review'].apply(get_team)
@@ -132,3 +133,54 @@ def team_conrad_or_jeremiah(df):
     )
 
     st.plotly_chart(fig)
+
+from wordcloud import WordCloud
+from io import BytesIO
+import streamlit as st
+
+def plot_wordcloud(wc, width=None, height=None):
+    """Converts WordCloud object to image and displays with Streamlit"""
+    img = wc.to_image()
+    buf = BytesIO()
+    img.save(buf, format='PNG')
+    kwargs = {}
+    if width is not None:
+        kwargs['width'] = width
+
+    st.image(buf.getvalue(), use_container_width=True, **kwargs)
+
+def generateWordCloudFromReviews(df, exclude_words=None):
+    # Make sure 'processed' column exists
+    if "processed" not in df.columns:
+        st.warning("No 'processed' column found in the DataFrame.")
+        return
+
+    positive_keywords = ["love", "amazing", "best", "dreamy", "cried", "emotional", "touching", "chemistry"]
+    negative_keywords = ["rushed", "terrible", "disappointed", "boring", "bad", "passive", "ruin"]
+
+    def get_sentiment(text):
+        if any(word in text for word in positive_keywords):
+            return "positive"
+        elif any(word in text for word in negative_keywords):
+            return "negative"
+        return "neutral"
+
+    df["sentiment"] = df["processed"].apply(get_sentiment)
+
+    positive_text = " ".join(df[df["sentiment"] == "positive"]["processed"])
+    negative_text = " ".join(df[df["sentiment"] == "negative"]["processed"])
+    stopwords_set = set(exclude_words) if exclude_words else set()
+
+    with st.container():
+        col1, col2 = st.columns(2) 
+        with col1:
+            positive_wc = WordCloud(width=1000, height=500, background_color='white', stopwords=stopwords_set).generate(positive_text)
+        with col2:
+            negative_wc = WordCloud(width=1000, height=500, background_color='black', colormap='Reds', stopwords=stopwords_set).generate(negative_text)
+
+    # Display in Streamlit
+    st.subheader("Positive Reviews Word Cloud")
+    plot_wordcloud(positive_wc, width=200, height=100)
+
+    st.subheader("Negative Reviews Word Cloud")
+    plot_wordcloud(negative_wc, width=200, height=100)

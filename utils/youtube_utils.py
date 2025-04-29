@@ -121,7 +121,7 @@ def generate_likes_and_views_chart(video_details):
                 color="#2d3c24",
             ),
             font_family="Helvetica",
-            title_font=dict(size=30, color="#a23e1a"),
+            title_font=dict(size=30, color="#F08080"),
             plot_bgcolor="#f0f5f1",
             legend=dict(font=dict(size=12), title=dict(font=dict(size=16)))
         )

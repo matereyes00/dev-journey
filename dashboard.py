@@ -52,18 +52,36 @@ with st.container():
         spotify_analysis.team_conrad_or_jerimiah(df)
         st.markdown(
             """ 
-                <h2 style='color:#CB8F40;'>Youtube</h2>
+                <h3 style='color:#CB8F40;'>Youtube</h3>
             """, unsafe_allow_html=True)
         youtube_config.team_conrad_or_jeremiah(yt_sentiment)
         st.markdown(
             """ 
-                <h2 style='color:#CB8F40;'>IMDb</h2>
+                <h3 style='color:#CB8F40;'>IMDb</h3>
             """, unsafe_allow_html=True)
         tv_config.team_conrad_or_jeremiah(imdb_reviews_df)
+        st.write(
+            """ 
+                <h1>What does this mean?</h1>
+                <p> This section indicates the majority of online users (YouTube and IMDb) lean towards Team Conrad. In fact, less than half of the collected data were on Team Jeremiah. However, 'Daylight', the song associated with Jeremiah in the latest teaser trailer, is a more popular song on spotify. This can be attributed to the number of times it was streamed. It still remains more popular than the song 'Red' (Taylor's Version). Even after 24 hours of the trailer's release, the song Daylight has more streams over 'Red'.</p>
+            """, unsafe_allow_html=True)
     with col2:
         spotify_analysis.discover_artists(df)
 
-st.title("🎧 Sounds of the show")
+st.header("IMDB reviews")
+exclude = [
+    "the", "and", "a", "is", "of", "to", "it", "in", "that", "this", "will", "where", "what", "you", "i", "youre", "many", "much", "oh", "with", "thati", "not", "wont", "any", "anyways", "for",
+    "have", "had", "they", "but", "or", "on", "do", "are", "we", "theres", "havent", "so", "did",
+    "all"
+    ]
+tv_config.generateWordCloudFromReviews(imdb_reviews_df, exclude_words=exclude)
+st.write("""
+    <p>The word clouds generated from the reviews dataset suggest a mixed reaction from audiences. </p>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+    <h1 style='color:#F08080;'>🎧 Sounds of the Show</h1>
+""", unsafe_allow_html=True)
 col1, col2 = st.columns([1, 1])
 st.components.v1.html('<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWVEaynofUD86?utm_source=generator" width="100%" height="400" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>')
 
