@@ -123,8 +123,6 @@ streamlit==1.44.1
 sympy==1.13.3
 tenacity==9.1.2
 textblob==0.19.0
-# thinc==8.3.6
-thinc==8.1.7 
 threadpoolctl==3.6.0
 tokenizers==0.21.1
 toml==0.10.2
